@@ -5,15 +5,27 @@ import PackageDescription
 
 let package = Package(
     name: "OpenCvWrapper",
+    platforms: [.iOS(.v17)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "OpenCvWrapper",
             targets: ["OpenCvWrapper"]),
     ],
+    dependencies: [
+        .package(
+            url: "https://github.com/southernwind/opencv2-swift-package.git",
+            branch: "master"
+        )
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
+        .target(
+            name: "OpenCvWrapperObjC",
+            dependencies: ["opencv2-swift-package"],
+            sources: ["src"],
+            publicHeadersPath: "include",
+            cSettings: [.headerSearchPath("include")]
+        ),
         .target(
             name: "OpenCvWrapper"),
         .testTarget(

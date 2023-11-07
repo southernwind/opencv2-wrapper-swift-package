@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "opencv2-swift-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/southernwind/opencv2-swift-package.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "0c608bdafc2b485630c4f233af033ed35ad86e7b"
+      }
+    }
+  ],
+  "version" : 2
+}
